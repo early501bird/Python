@@ -1,7 +1,7 @@
 # !/home/lee/anaconda3/bin/python3.6
 # -*- coding:utf-8 -*-
 from tornado import ioloop
-from simpleProject import config
+from simpleBaseProject import config
 from application import Application
 
 if __name__ == '__main__':
