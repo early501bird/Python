@@ -179,3 +179,4 @@ class UploadFileHandler(web.RequestHandler):
                     f.write(file['body'])
 
         self.write('ok')
+

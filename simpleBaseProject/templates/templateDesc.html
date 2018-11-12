@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>template language</title>
+    <link rel="stylesheet" href= "{{static_url('css/home.css')}}">
 </head>
 <body>
     <h1>this is a template expression</h1>
@@ -11,5 +12,22 @@
     <h1>per:{{per}}</h1>
     <h1>per.name:{{per['name']}}</h1>
     <h1>{{obj1}}</h1>
+
+    {%if num == 100 %}
+    <h1>num value is 100</h1>
+    {%end%}
+    <ul>
+        {%for i in range(10)%}
+        <li>index:{{i}}</li>
+        {%end%}
+    </ul>
+    <ul>
+        {%for stu in stus %}
+        <li>{{stu['name']}}</li>
+        {%end%}
+    </ul>
+
+    <h1>{{plus(12,45)}}</h1>
+
 </body>
 </html>

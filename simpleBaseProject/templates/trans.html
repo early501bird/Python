@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transfer</title>
+</head>
+<body>
+    {%raw str%}
+    {{str}}
+    {%autoescape None%}
+    {{str}}
+    {{str}}
+    {{str}}
+
+    <!--下面临时关闭转义-->
+    {{escape(str)}}
+    {{str}}
+</body>
+</html>

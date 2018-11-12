@@ -9,11 +9,15 @@ import tornado.web
 from views.index import *
 from views.template_express import *
 from config import settings
+import  os
+from views.ormHandlers import *
+
+
 
 class Application(tornado.web.Application):
     def __init__(self):
         handlers= (
-            (r'/', IndexHandler),
+            # (r'/', IndexHandler),
             # (r'/sunck',SunckHandler,{"word1": "good", "word2": "nice"}),
             # 反向解析
             web.url(r'/kaigo', KaigeHandler, {"word1": "good", "word2": "nice"}, name='kaigoIndex'),
@@ -45,6 +49,15 @@ class Application(tornado.web.Application):
             (r'/upfile',UploadFileHandler),
             #template expression parameter
             (r'/template', Template_expressionHandler),
+            (r'/trans',TransHandler),
+            #继承
+            (r'/cart', CartHandler),
+            # orm
+            (r'/students', StudentsHandler),
+
+            (r'/(.*)$',web.StaticFileHandler,{"path":os.path.join(config.BASE_DIRS,"static/html"),"default_filename":"index.html"}),
+
+
         )
 
         super(Application,self).__init__(handlers,**settings)
