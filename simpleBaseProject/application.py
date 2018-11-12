@@ -11,7 +11,7 @@ from views.template_express import *
 from config import settings
 import  os
 from views.ormHandlers import *
-
+from views.appSafe import *
 
 
 class Application(tornado.web.Application):
@@ -55,6 +55,13 @@ class Application(tornado.web.Application):
             # orm
             (r'/students', StudentsHandler),
 
+            #app safe
+            #normal cookie
+            (r'/pcookie',PCookieHandler),
+            (r'/getpcookie', GetPCookieHandler),
+            (r'/clearpcookie', ClearPCookieHandler),
+
+            #默认静态页面
             (r'/(.*)$',web.StaticFileHandler,{"path":os.path.join(config.BASE_DIRS,"static/html"),"default_filename":"index.html"}),
 
 

@@ -2,7 +2,9 @@
 # -*- coding:utf-8 -*-
 
 from tornado.web import RequestHandler
-from model.studentModel import *
+
+from orm.model.studentModel import *
+
 
 class StudentsHandler(RequestHandler):
     def get(self, *args, **kwargs):
