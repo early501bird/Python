@@ -28,4 +28,6 @@ settings={
     "debug":True,
     #关闭项目页面自动转义，一般不建议使用
     # "autoescape":None
+
+    "cookie_secret":"zXAClMAcTxWv/lFOZBHFAlOw7rONTEwntiHwGrvWcT8="
 }
