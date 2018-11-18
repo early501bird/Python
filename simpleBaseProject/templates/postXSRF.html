@@ -8,18 +8,17 @@
     <form action="/postxsrf" method="post">
         <!-- {% module xsrf_form_html() %}-->
         <!--这是一个xsrf保护的方式-->
-        姓名：<input type="text" value="" name="username"/>
-        <hr/>
-        密码:<input type="password" value="" name="passwd"/>
-        <hr/>
+        <input type="hidden" id="hi" name="_xsrf" value="">
         <input type="submit" value="登录">
     </form>
 
     <script type="text/javascript" charset="utf-8">
         function getCookie(name) {
-            var cook = document.cookie.match("\\b"+name+"([^:]*)\\b")
+            var cook = document.cookie.match("\\b"+name+"=([^:]*)\\b")
             return cook?cook[1]:undefined
         }
+        console.log(getCookie("_xsrf"))
+        document.getElementById('hi').value=getCookie('_xsrf')
     </script>
 </body>
 </html>

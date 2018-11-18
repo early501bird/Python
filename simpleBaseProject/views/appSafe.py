@@ -62,3 +62,9 @@ class PostxsrfCookie(RequestHandler):
             count+=1
         self.set_cookie('count',str(count))
         self.redirect(r'cookienum')
+
+class SetxsrfCookie(RequestHandler):
+    def get(self, *args, **kwargs):
+        #设置_xsrf
+        self.xsrf_token
+        self.finish("OK")
