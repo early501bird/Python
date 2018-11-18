@@ -36,17 +36,29 @@ class SafeCookieHandler(RequestHandler):
 
 class CookieNumHandler(RequestHandler):
     def get(self, *args, **kwargs):
-        count=self.get_cookie('count',None)
+        count=self.get_cookie('count',"未登录")
 
-        if not count:
-            count=1
-        else:
-            count=int(count)
-            count+=1
+        # if not count:
+        #     count=1
+        # else:
+        #     count=int(count)
+        #     count+=1
+        # self.set_cookie('count',str(count))
 
-        self.set_cookie('count',str(count))
         self.render('cookieNum.html',count=count)
         #通过testXSRF.html可以以get方式模拟请滶伪造 以上修改cookie建议放在Post中实现
 
+
+class PostxsrfCookie(RequestHandler):
+    def get(self, *args, **kwargs):
+        self.render('postXSRF.html')
+
     def post(self, *args, **kwargs):
-        pass
+        count=self.get_cookie('count',None)
+        if not count:
+            count = 1
+        else:
+            count = int(count)
+            count+=1
+        self.set_cookie('count',str(count))
+        self.redirect(r'cookienum')

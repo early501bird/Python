@@ -29,5 +29,7 @@ settings={
     #关闭项目页面自动转义，一般不建议使用
     # "autoescape":None
 
-    "cookie_secret":"zXAClMAcTxWv/lFOZBHFAlOw7rONTEwntiHwGrvWcT8="
+    "cookie_secret":"zXAClMAcTxWv/lFOZBHFAlOw7rONTEwntiHwGrvWcT8=",
+
+    "xsrf_cookies":True,#开启XSRF保护
 }

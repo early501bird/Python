@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PostFile</title>
+</head>
+<body>
+    <form action="/postxsrf" method="post">
+        <!-- {% module xsrf_form_html() %}-->
+        <!--这是一个xsrf保护的方式-->
+        姓名：<input type="text" value="" name="username"/>
+        <hr/>
+        密码:<input type="password" value="" name="passwd"/>
+        <hr/>
+        <input type="submit" value="登录">
+    </form>
+
+    <script type="text/javascript" charset="utf-8">
+        function getCookie(name) {
+            var cook = document.cookie.match("\\b"+name+"([^:]*)\\b")
+            return cook?cook[1]:undefined
+        }
+    </script>
+</body>
+</html>

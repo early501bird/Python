@@ -68,6 +68,7 @@ class Application(tornado.web.Application):
 
             #cookie 计数
             (r'/cookienum',CookieNumHandler),
+            (r'/postxsrf',PostxsrfCookie),
 
             #默认静态页面
             (r'/(.*)$',web.StaticFileHandler,{"path":os.path.join(config.BASE_DIRS,"static/html"),"default_filename":"index.html"}),
