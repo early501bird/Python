@@ -1,6 +1,6 @@
 # !/home/lee/anaconda3/bin/python3.6
 # -*- coding:utf-8 -*-
-
+import tornado.web
 from tornado.web import RequestHandler
 
 #normal cookies
@@ -68,3 +68,4 @@ class SetxsrfCookie(RequestHandler):
         #设置_xsrf
         self.xsrf_token
         self.finish("OK")
+

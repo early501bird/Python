@@ -3,12 +3,20 @@
 from tornado import  web
 import config,os
 
-class IndexHandler(web.RequestHandler):
-    def get(self, *args, **kwargs):
-        # self.write('index handler get')
-        url=self.reverse_url('kaigoIndex') #反向解析， kaigoIndex这里对应的是name标签
-        self.write("<a href='{0}'>另一个页面</a>".format(url))
-        # print('index handler get')
+
+class StaticFileHandler(web.StaticFileHandler):
+    def __init__(self,*args,**kwargs):
+        super(StaticFileHandler,self).__init__(*args,**kwargs)
+        self.xsrf_token
+
+
+
+# class IndexHandler(web.RequestHandler):
+#     def get(self, *args, **kwargs):
+#         # self.write('index handler get')
+#         url=self.reverse_url('kaigoIndex') #反向解析， kaigoIndex这里对应的是name标签
+#         self.write("<a href='{0}'>另一个页面</a>".format(url))
+#         # print('index handler get')
 
 
 
