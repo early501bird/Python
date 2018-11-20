@@ -32,4 +32,6 @@ settings={
     "cookie_secret":"zXAClMAcTxWv/lFOZBHFAlOw7rONTEwntiHwGrvWcT8=",
 
     "xsrf_cookies":True,#开启XSRF保护
+
+    "login_url":'/login',
 }

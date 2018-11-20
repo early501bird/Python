@@ -69,3 +69,33 @@ class SetxsrfCookie(RequestHandler):
         self.xsrf_token
         self.finish("OK")
 
+
+
+class LoginHandler(RequestHandler):
+    def get(self, *args, **kwargs):
+        next=self.get_argument('next','/')
+        url='login?next='+next
+        self.render('login.html',url=url)
+
+    def post(self, *args, **kwargs):
+        name=self.get_arguments('username')
+        pwd=self.get_arguments('passwd')
+        next = self.get_argument('next', '/')
+        print(next)
+        if name[0]=='1' and pwd[0]=='1':
+            self.redirect(next+"?flag=logined")
+        else:
+            self.redirect('/login?next='+next)
+
+class HomeHandler(RequestHandler):
+    #验证用户逻辑,成功Return　True，
+    # 失败则自动会重定向到config.py中login_url所指向的陆由
+    def get_current_user(self):
+        flag=self.get_argument('flag',None)
+        return flag
+
+
+    #由get_cuurent_user()验证通过才能Get
+    @tornado.web.authenticated
+    def get(self, *args, **kwargs):
+        self.render('home.html')

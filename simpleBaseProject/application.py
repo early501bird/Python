@@ -71,6 +71,10 @@ class Application(tornado.web.Application):
             (r'/postxsrf',PostxsrfCookie),
             (r'/setxsrf', SetxsrfCookie),
 
+            #用户登录
+            (r'/login',LoginHandler),
+            (r'/home', HomeHandler),
+
             #默认静态页面
             (r'/(.*)$', StaticFileHandler,{"path":os.path.join(config.BASE_DIRS,"static/html"),"default_filename":"index.html"}),
 
